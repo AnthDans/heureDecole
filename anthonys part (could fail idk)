@@ -1,0 +1,24 @@
+from tkinter import *
+
+
+def life_ennuibar():
+
+    global ennui_value, recursive
+
+    if recursive:
+        fen.after(200, life_ennuibar)
+
+    if ennui_value>99:
+        ennui_value=0
+        gameover()
+
+    if held_down and ennui_value>=0:
+        ennui_value-=2
+
+    else:
+        ennui_value+=2
+    update_progressbar()
+
+
+def update_progressbar():
+    progressbar['value']=ennui_value
